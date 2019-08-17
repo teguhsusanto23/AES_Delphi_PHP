@@ -8,6 +8,8 @@ $mode = 'ECB';
 $iv = null;
 
 $aes = new AES($key, $mode, $iv);
-echo $aes->decrypt(hex2bin($data) );
+$original = $aes->decrypt(hex2bin($data) );
+$original2 = $aes->encrypt("The words you sent is : ".$original);
+echo bin2hex($original2);
 
 ?>
